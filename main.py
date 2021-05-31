@@ -7,4 +7,6 @@ Assignment 1
 
 import train
 
-print(train.calcDistance(["A","C","E"]))
+print(train.calcDistance(["A","B","E","F"]))
+# print(train.isRoute(["A","B","E","F"]))
+

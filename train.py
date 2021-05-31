@@ -12,21 +12,42 @@ stations_routes = {"A": [["B", 1]],
 
 def calcDistance(route: list):
     distance = 0
-    if route[0] not in stations_routes:
-        return f"\nStarting station {route[0]} does not exist."
-
-    else:
+    if isRoute(route):
         r = [route[0]]
         lastStation = route[len(route) - 1]
         for station in route:
+            # print(station)
             if station == lastStation:
                 break
             for next in stations_routes.get(station):
+                # print(next)
                 for x in next:
                     if type(x) == str:
                         if x == route[route.index(station) + 1]:
+                            # print(x)
                             nxtStation, dist = next
                             r.append(nxtStation)
                             distance += dist
+        return f"\nTotal distance of route {r} is {distance}."
+    else:
+        return f"\nRoute {route} does not exist."
 
-    return f"\nTotal distance of route {r} is {distance}."
+
+def isRoute(route: list):
+    route1 = [route[0]]
+    lastStation = route[len(route) - 1]
+    for station in route:
+        #print(station)
+        if station == lastStation:
+            break
+        for next in stations_routes.get(station):
+            #print(next)
+            for x in next:
+                if type(x) == str:
+                    if x == route[route.index(station) + 1]:
+                        route1.append(x)
+    if route == route1:
+        return True
+    else:
+        return False
+

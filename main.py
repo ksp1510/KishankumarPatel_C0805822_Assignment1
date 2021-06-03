@@ -6,7 +6,11 @@ Assignment 1
 """
 
 import train
+import trains
 
-print(train.calcDistance(["A","B","E","F"]))
-# print(train.isRoute(["A","B","E","F"]))
 
+#print(train.calcDistance(["B"))
+#print(train.calcDistance.__annotations__)
+#print(train.findRoute("A","C"))
+#print(train.calcDistance(trains.shortestRoute("A","C")))
+print(trains.shortestRoute("A","C"))
